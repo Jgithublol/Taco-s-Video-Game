@@ -17,24 +17,24 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemies");
-        HealthText.text = "Enemy=" + health;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        HealthText.text = "ENEMY" + health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemies");
-        HealthText.text = "Enemy=" + health;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        HealthText.text = "ENEMY: " + health;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string otherName = collision.gameObject.name;
-        if (otherName == "BulletUp(Clone)")
+        if (otherName == "Bullet")
         {
             health -= damage;
-            HealthText.text = "Enemy=" + health;
-            enemies = GameObject.FindGameObjectsWithTag("Enemies");
+            HealthText.text = "ENEMY: " + health;
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
             if (enemies.Length <= 0)
             {
                 Scene scene = SceneManager.GetActiveScene();

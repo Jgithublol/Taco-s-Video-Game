@@ -18,20 +18,20 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthText.text = "Player" + health;
+        HealthText.text = "HEALTH: " + health;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherName = collision.gameObject.name;
-        if (otherName == "Spike")
+        string otherTag = collision.gameObject.name;
+        if (otherTag == "Damgae")
         {
             health--;
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        string otherName = collision.gameObject.name;
-        if (otherName == "Spike")
+        string otherTag = collision.gameObject.name;
+        if (otherTag == "Damage")
         {
             health--;
             if (health <= 0)
