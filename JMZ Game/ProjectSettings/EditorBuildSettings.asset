@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Martin.unity
     guid: 82ab664f20f7c104ab949e80f52486fb
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: fbd764f9b47e7304d9b5e805f6f3c042
   m_configObjects: {}

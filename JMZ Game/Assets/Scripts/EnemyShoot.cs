@@ -6,15 +6,15 @@ public class EnemyShoot : MonoBehaviour
 {
     public GameObject player;
     public float close = 5.0f;
-    public float shootDelay = 1.0f;
+    public float shootdelay = 1.0f;
     float timer = 0;
     public GameObject prefab;
-    public float BulletSpeed = 10.0f;
+    public float Bulletspeed = 5.0f;
     public float BulletLifetime = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,10 +26,13 @@ public class EnemyShoot : MonoBehaviour
         shootDir.Normalize();
         if (shootDist <= close)
         {
-            timer = 0;
-            GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = shootDir * BulletSpeed;
-            Destroy(bullet, BulletLifetime);
+            if (timer >= shootdelay)
+            {
+                timer = 0;
+                GameObject Hairball = Instantiate(prefab, transform.position, Quaternion.identity);
+                Hairball.GetComponent<Rigidbody2D>().velocity = shootDir * Bulletspeed;
+                Destroy(Hairball, BulletLifetime);
+            }
         }
     }
 }

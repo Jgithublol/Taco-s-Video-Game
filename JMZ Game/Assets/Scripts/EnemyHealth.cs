@@ -1,47 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int damage = 5;
-    public int totalHealth;
-    public string nextLVL;
-    public GameObject[] enemies;
-    public GameObject prefab;
-    public int health = 15;
-    public TextMeshProUGUI HealthText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        HealthText.text = "ENEMY" + health;
-    }
 
+    public int health = 10;
+    public TextMeshProUGUI EnemyhealthText;
     // Update is called once per frame
     void Update()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        HealthText.text = "ENEMY: " + health;
+        EnemyhealthText.text = "ENEMY: " + health;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherName = collision.gameObject.name;
-        if (otherName == "Bullet")
+        string otherTag = collision.gameObject.tag;
+        if (otherTag == "PlayerBullet")
         {
-            health -= damage;
-            HealthText.text = "ENEMY: " + health;
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (enemies.Length <= 0)
+            health--;
+            if (health <= 0)
             {
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(nextLVL);
+                SceneManager.LoadScene("WinScreen");
             }
-            if (health <= 0) Destroy(gameObject);
-            Destroy(collision.gameObject);
+
         }
+
     }
+
 }

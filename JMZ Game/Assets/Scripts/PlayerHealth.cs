@@ -7,8 +7,8 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 15;
-    public TextMeshProUGUI HealthText;
+    public int health = 10;
+    public TextMeshProUGUI healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,19 +18,11 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthText.text = "HEALTH: " + health;
+        healthText.text = "HEALTH: " + health;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherTag = collision.gameObject.name;
-        if (otherTag == "Damgae")
-        {
-            health--;
-        }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        string otherTag = collision.gameObject.name;
+        string otherTag = collision.gameObject.tag;
         if (otherTag == "Damage")
         {
             health--;
@@ -41,5 +33,4 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-
 }
