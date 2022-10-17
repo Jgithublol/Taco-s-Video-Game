@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Damage
   - PlayerBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Enemy
   - PlayerBullet
   - EnemyBullet
-  - 
-  - 
+  - Walls/Floor/roof
+  - Sheild
   - 
   - 
   - 
