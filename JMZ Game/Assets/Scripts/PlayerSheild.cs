@@ -13,7 +13,7 @@ public class PlayerSheild : MonoBehaviour
     float timer = 0;
     public float summondelay = 1.0f;
     public AudioClip shootSound;
-    public int health = 10;
+    public int sheildHealth = 10;
     public TextMeshProUGUI healthText;
     // Update is called once per frame
     void Update()
@@ -28,16 +28,4 @@ public class PlayerSheild : MonoBehaviour
                 
             }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        string otherName = collision.gameObject.tag;
-        if (otherName == "EnemyBullet(clone)")
-        {
-            health--;
-            if (health <= 0)
-            {
-                GameObject Sheild = Instantiate(prefab, transform.position, Quaternion.identity);
-            }
-        }
-     }
 }

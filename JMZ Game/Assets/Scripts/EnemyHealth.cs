@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using 
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -14,19 +15,19 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyhealthText.text = "ENEMY: " + health;
+        EnemyhealthText.text = "Enemy Health: " + health;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherTag = collision.gameObject.tag;
-        if (otherTag == "PlayerBullet")
+        string otherName = collision.gameObject.name;
+        if (otherName == "PlayerBullet(Clone)")
         {
             health--;
             if (health <= 0)
             {
-                SceneManager.LoadScene("WinScreen");
+                EnemyhealthText.text = "Player Health: " + health;
+                Destroy(gameObject);
             }
-
         }
 
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Security.Permissions;
 
 public class SheildHealth : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class SheildHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Sheild: " + health;
+        healthText.text = "Sheild Health: " + health;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,8 +31,7 @@ public class SheildHealth : MonoBehaviour
             health--;
             if (health <= 0)
             {
-                GameObject Sheild = Instantiate(prefab, transform.position, Quaternion.identity);
-                Destroy(Sheild, sheildlifetime);
+                Destroy(gameObject);
             }
         }
     }
