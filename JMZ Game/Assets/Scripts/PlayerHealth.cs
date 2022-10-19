@@ -22,8 +22,8 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherName = collision.gameObject.name;
-        if (otherName == "EnemyBullet(Clone)")
+        string otherTag = collision.gameObject.name;
+        if (otherTag == "EnemyBullet")
         {
             health--;
             if (health <= 0)

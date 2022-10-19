@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
-using 
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -19,13 +18,13 @@ public class EnemyHealth : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherName = collision.gameObject.name;
-        if (otherName == "PlayerBullet(Clone)")
+        string otherTag = collision.gameObject.name;
+        if (otherTag == "PlayerBullet")
         {
             health--;
             if (health <= 0)
             {
-                EnemyhealthText.text = "Player Health: " + health;
+                EnemyhealthText.text = "Enemy Health" + health;
                 Destroy(gameObject);
             }
         }
