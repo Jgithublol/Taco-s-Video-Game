@@ -14,19 +14,19 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyhealthText.text = "Enemy Health: " + health;
+        EnemyhealthText.text = "Hampster: " + health;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherTag = collision.gameObject.name;
+        string otherTag = collision.gameObject.tag;
         if (otherTag == "PlayerBullet")
         {
             health--;
             if (health <= 0)
             {
-                EnemyhealthText.text = "Enemy Health" + health;
-                Destroy(gameObject);
+                SceneManager.LoadScene("WinScreen");
             }
+
         }
 
     }

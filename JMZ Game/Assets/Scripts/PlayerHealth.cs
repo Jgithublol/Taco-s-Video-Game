@@ -18,12 +18,12 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Player Health: " + health;
+        healthText.text = "Health: " + health;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        string otherTag = collision.gameObject.name;
-        if (otherTag == "EnemyBullet")
+        string otherTag = collision.gameObject.tag;
+        if (otherTag == "Damage")
         {
             health--;
             if (health <= 0)
