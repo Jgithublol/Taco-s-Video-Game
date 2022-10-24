@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyhealthText.text = "Hampster: " + health;
+        EnemyhealthText.text = "Enemy: " + health;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

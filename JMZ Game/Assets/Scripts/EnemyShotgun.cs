@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShoot : MonoBehaviour
+public class EnemyShotgun : MonoBehaviour
 {
     public GameObject player;
     public float close = 5.0f;
@@ -29,14 +29,12 @@ public class EnemyShoot : MonoBehaviour
             if (timer >= shootdelay)
             {
                 timer = 0;
-                GameObject Hairball = Instantiate(prefab, transform.position, Quaternion.identity);
-                Hairball.GetComponent<Rigidbody2D>().velocity = shootDir * Bulletspeed;
-                Destroy(Hairball, BulletLifetime);
+                GameObject gameObject = Instantiate(prefab, transform.position, Quaternion.identity);
+                Instantiate(prefab, transform.position, Quaternion.identity);
+                Instantiate(prefab, transform.position, Quaternion.identity);
+                gameObject.GetComponent<Rigidbody2D>().velocity = shootDir * Bulletspeed;
+                Destroy(gameObject, BulletLifetime);
             }
         }
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-
     }
 }

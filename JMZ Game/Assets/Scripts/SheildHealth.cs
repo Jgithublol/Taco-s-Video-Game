@@ -21,7 +21,7 @@ public class SheildHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Sheild Health: " + health;
+        healthText.text = "SheildHealth: " + health;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
