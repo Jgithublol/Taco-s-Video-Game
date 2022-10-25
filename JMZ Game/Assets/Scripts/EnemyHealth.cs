@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
             health--;
             if (health <= 0)
             {
-                SceneManager.LoadScene("WinScreen");
+                SceneManager.LoadScene("Laser Boss");
             }
 
         }
