@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7250a8f08c3a91c44b1c96e9cd263fd2
+  - enabled: 1
+    path: Assets/Scenes/Laser Boss.unity
+    guid: 7c925768945dd024f86485807a03dcce
   m_configObjects: {}
